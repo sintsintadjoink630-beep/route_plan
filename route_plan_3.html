@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>訪問ルート計画（松田桂子邸スタート・横山邸なし）</title>
+<style>
+  :root {
+    --accent: #1a73e8;
+    --accent-dark: #0d47a1;
+    --bg: #f5f7fa;
+    --card: #ffffff;
+    --text: #202124;
+    --sub: #5f6368;
+    --border: #e0e3e7;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 16px;
+  }
+  .container { max-width: 720px; margin: 0 auto; }
+  header {
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    color: #fff;
+    border-radius: 16px;
+    padding: 24px 20px;
+    margin-bottom: 16px;
+  }
+  header h1 { margin: 0 0 6px; font-size: 1.4rem; }
+  header p { margin: 4px 0; font-size: 0.92rem; opacity: 0.95; }
+  .summary {
+    display: flex;
+    gap: 12px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+  .summary .pill {
+    background: rgba(255,255,255,0.18);
+    border-radius: 10px;
+    padding: 8px 14px;
+    font-size: 0.95rem;
+  }
+  .summary .pill b { font-size: 1.15rem; display: block; }
+
+  .main-btn {
+    display: block;
+    text-align: center;
+    background: #fff;
+    color: var(--accent-dark);
+    font-weight: bold;
+    font-size: 1.05rem;
+    padding: 14px;
+    border-radius: 12px;
+    text-decoration: none;
+    margin-top: 16px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+  .main-btn:active { transform: scale(0.98); }
+
+  .note {
+    background: #fff8e1;
+    border-left: 4px solid #f9ab00;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.85rem;
+    color: #5f4a00;
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+
+  .removed {
+    background: #fce8e6;
+    border-left: 4px solid #d93025;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.85rem;
+    color: #7a1a12;
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+
+  .stop {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .stop .num {
+    flex: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+  }
+  .stop.start .num { background: #34a853; }
+  .stop.goal .num { background: #ea4335; }
+  .stop .body { flex: 1; min-width: 0; }
+  .stop .name { font-weight: bold; font-size: 1.05rem; margin-bottom: 2px; }
+  .stop .addr { color: var(--sub); font-size: 0.92rem; margin-bottom: 8px; word-break: break-all; }
+  .stop .tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    background: #e8f0fe;
+    color: var(--accent-dark);
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .stop .link {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--accent);
+    text-decoration: none;
+    border: 1px solid var(--accent);
+    border-radius: 20px;
+    padding: 4px 12px;
+  }
+  .leg {
+    text-align: center;
+    color: var(--sub);
+    font-size: 0.78rem;
+    margin: -2px 0 8px 17px;
+    border-left: 2px dashed var(--border);
+    padding-left: 17px;
+  }
+
+  .alt {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px 18px;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+  .alt h2 { font-size: 1.05rem; margin-top: 0; }
+  .alt ol { padding-left: 20px; margin: 8px 0; }
+  .alt b { color: var(--accent-dark); }
+
+  footer {
+    text-align: center;
+    color: var(--sub);
+    font-size: 0.75rem;
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <h1>📍 訪問ルート計画（横山邸なし）</h1>
+    <p>起点：松田桂子邸（宇城）｜訪問先9件を最短ルートで巡回</p>
+    <div class="summary">
+      <div class="pill"><b>約1時間47分</b>運転時間（現在の交通状況ベース）</div>
+      <div class="pill"><b>約59.1 km</b>総走行距離</div>
+      <div class="pill"><b>9件</b>訪問先（車移動）</div>
+    </div>
+    <a class="main-btn" href="https://www.google.com/maps/dir/?api=1&origin=%E7%86%8A%E6%9C%AC%E7%9C%8C%E5%AE%87%E5%9F%8E%E5%B8%82%E6%9D%BE%E6%A9%8B%E7%94%BA%E6%9B%B2%E9%87%8E3497-15&destination=%E7%86%8A%E6%9C%AC%E7%9C%8C%E5%85%AB%E4%BB%A3%E5%B8%82%E7%94%B0%E4%B8%AD%E8%A5%BF%E7%94%BA12-6&waypoints=%E7%86%8A%E6%9C%AC%E7%9C%8C%E5%AE%87%E5%9F%8E%E5%B8%82%E6%9D%BE%E6%A9%8B%E7%94%BA%E4%B9%85%E5%85%B72248%7C%E7%86%8A%E6%9C%AC%E7%9C%8C%E5%AE%87%E5%9F%8E%E5%B8%82%E6%9D%BE%E6%A9%8B%E7%94%BA%E6%9B%B2%E9%87%8E1075%7C%E7%86%8A%E6%9C%AC%E7%9C%8C%E7%86%8A%E6%9C%AC%E5%B8%82%E5%8D%97%E5%8C%BA%E5%9F%8E%E5%8D%97%E7%94%BA%E6%B2%88%E7%9B%AE1199-1%7C%E7%86%8A%E6%9C%AC%E7%9C%8C%E4%B8%8B%E7%9B%8A%E5%9F%8E%E9%83%A1%E7%BE%8E%E9%87%8C%E7%94%BA%E5%A0%85%E5%BF%97%E7%94%B0266-1%7C%E7%86%8A%E6%9C%AC%E7%9C%8C%E5%AE%87%E5%9F%8E%E5%B8%82%E5%B0%8F%E5%B7%9D%E7%94%BA%E5%8C%97%E9%83%A8%E7%94%B01049-2%7C%E7%86%8A%E6%9C%AC%E7%9C%8C%E5%85%AB%E4%BB%A3%E9%83%A1%E6%B0%B7%E5%B7%9D%E7%94%BA%E7%AB%8B%E7%A5%9E2036%7C%E7%86%8A%E6%9C%AC%E7%9C%8C%E5%85%AB%E4%BB%A3%E9%83%A1%E6%B0%B7%E5%B7%9D%E7%94%BA%E5%AE%AE%E5%8E%9F505-2&travelmode=driving" target="_blank" rel="noopener">
+      🗺️ このルートをGoogleマップで開く（全9件）
+    </a>
+  </header>
+
+  <div class="removed">
+    🚫 横山邸（宇土）は今回のルートから除外しています。10件版に比べて所要時間が約24分、走行距離が約11.5km短縮されました（2時間11分・70.6km → 1時間47分・59.1km）。
+  </div>
+
+  <div class="note">
+    ⚠️ 表示時間・距離は作成時点（2026年8月13日）のGoogleマップ交通状況に基づく参考値です。実際の出発時の道路状況・渋滞により変動します。出発前にリンクを開いて最新情報を確認してください。<br>
+    ※ 各区間の距離は直線距離の目安です（実際の走行距離とは異なります）。
+  </div>
+
+  <!-- Stop 1 -->
+  <div class="stop start">
+    <div class="num">S</div>
+    <div class="body">
+      <div class="name">松田桂子邸（宇城）<span class="tag">スタート</span></div>
+      <div class="addr">熊本県宇城市松橋町曲野３４９７−１５</div>
+      <a class="link" href="https://www.google.com/maps/search/?api=1&query=%E7%86%8A%E6%9C%AC%E7%9C%8C%E5%AE%87%E5%9F%8E%E5%B8%82%E6%9D%BE%E6%A9%8B%E7%94%BA%E6%9B%B2%E9%87%8E3497-15" target="_blank" rel="noopener">この住所を単体で開く</a>
+    </div>
+  </div>
+  <div class="leg">↓ 約1.3 km</div>
+
+  <!-- Stop 2 -->
+  <div class="stop">
+    <div class="num">2</div>
+    <div class="body">
+      <div class="name">宮原優子邸（宇城）</div>
+      <div class="addr">熊本県宇城市松橋町久具２２４８</div>
+      <a class="link" href="https://www.google.com/maps/search/?api=1&query=%E7%86%8A%E6%9C%AC%E7%9C%8C%E5%AE%87%E5%9F%8E%E5%B8%82%E6%9D%BE%E6%A9%8B%E7%94%BA%E4%B9%85%E5%85%B72248" target="_blank" rel="noopener">この住所を単体で開く</a>
+    </div>
+  </div>
+  <div class="leg">↓ 約1.4 km</div>
+
+  <!-- Stop 3 -->
+  <div class="stop">
+    <div class="num">3</div>
+    <div class="body">
+      <div class="name">宮田和恵邸（宇城）</div>
+      <div class="addr">熊本県宇城市松橋町曲野１０７５</div>
+      <a class="link" href="https://www.google.com/maps/search/?api=1&query=%E7%86%8A%E6%9C%AC%E7%9C%8C%E5%AE%87%E5%9F%8E%E5%B8%82%E6%9D%BE%E6%A9%8B%E7%94%BA%E6%9B%B2%E9%87%8E1075" target="_blank" rel="noopener">この住所を単体で開く</a>
+    </div>
+  </div>
+  <div class="leg">↓ 約6.4 km</div>
+
+  <!-- Stop 4 -->
+  <div class="stop">
+    <div class="num">4</div>
+    <div class="body">
+      <div class="name">辻宏邸（宇城）</div>
+      <div class="addr">熊本県熊本市南区城南町沈目１１９９−１</div>
+      <a class="link" href="https://www.google.com/maps/search/?api=1&query=%E7%86%8A%E6%9C%AC%E7%9C%8C%E7%86%8A%E6%9C%AC%E5%B8%82%E5%8D%97%E5%8C%BA%E5%9F%8E%E5%8D%97%E7%94%BA%E6%B2%88%E7%9B%AE1199-1" target="_blank" rel="noopener">この住所を単体で開く</a>
+    </div>
+  </div>
+  <div class="leg">↓ 約6.9 km</div>
+
+  <!-- Stop 5 -->
+  <div class="stop">
+    <div class="num">5</div>
+    <div class="body">
+      <div class="name">田上康子邸（宇城）</div>
+      <div class="addr">熊本県下益城郡美里町堅志田２６６−１</div>
+      <a class="link" href="https://www.google.com/maps/search/?api=1&query=%E7%86%8A%E6%9C%AC%E7%9C%8C%E4%B8%8B%E7%9B%8A%E5%9F%8E%E9%83%A1%E7%BE%8E%E9%87%8C%E7%94%BA%E5%A0%85%E5%BF%97%E7%94%B0266-1" target="_blank" rel="noopener">この住所を単体で開く</a>
+    </div>
+  </div>
+  <div class="leg">↓ 約8.4 km</div>
+
+  <!-- Stop 6 -->
+  <div class="stop">
+    <div class="num">6</div>
+    <div class="body">
+      <div class="name">山中誠邸（鏡）</div>
+      <div class="addr">熊本県宇城市小川町北部田１０４９−２</div>
+      <a class="link" href="https://www.google.com/maps/search/?api=1&query=%E7%86%8A%E6%9C%AC%E7%9C%8C%E5%AE%87%E5%9F%8E%E5%B8%82%E5%B0%8F%E5%B7%9D%E7%94%BA%E5%8C%97%E9%83%A8%E7%94%B01049-2" target="_blank" rel="noopener">この住所を単体で開く</a>
+    </div>
+  </div>
+  <div class="leg">↓ 約5.4 km</div>
+
+  <!-- Stop 7 -->
+  <div class="stop">
+    <div class="num">7</div>
+    <div class="body">
+      <div class="name">花園潤邸（鏡）</div>
+      <div class="addr">熊本県八代郡氷川町立神２０３６</div>
+      <a class="link" href="https://www.google.com/maps/search/?api=1&query=%E7%86%8A%E6%9C%AC%E7%9C%8C%E5%85%AB%E4%BB%A3%E9%83%A1%E6%B0%B7%E5%B7%9D%E7%94%BA%E7%AB%8B%E7%A5%9E2036" target="_blank" rel="noopener">この住所を単体で開く</a>
+    </div>
+  </div>
+  <div class="leg">↓ 約1.5 km</div>
+
+  <!-- Stop 8 -->
+  <div class="stop">
+    <div class="num">8</div>
+    <div class="body">
+      <div class="name">中村由香里邸（鏡）</div>
+      <div class="addr">熊本県八代郡氷川町宮原５０５−２</div>
+      <a class="link" href="https://www.google.com/maps/search/?api=1&query=%E7%86%8A%E6%9C%AC%E7%9C%8C%E5%85%AB%E4%BB%A3%E9%83%A1%E6%B0%B7%E5%B7%9D%E7%94%BA%E5%AE%AE%E5%8E%9F505-2" target="_blank" rel="noopener">この住所を単体で開く</a>
+    </div>
+  </div>
+  <div class="leg">↓ 約8.8 km</div>
+
+  <!-- Stop 9 -->
+  <div class="stop goal">
+    <div class="num">G</div>
+    <div class="body">
+      <div class="name">松下寿美子邸（北の丸）<span class="tag">ゴール</span></div>
+      <div class="addr">熊本県八代市田中西町１２−６</div>
+      <a class="link" href="https://www.google.com/maps/search/?api=1&query=%E7%86%8A%E6%9C%AC%E7%9C%8C%E5%85%AB%E4%BB%A3%E5%B8%82%E7%94%B0%E4%B8%AD%E8%A5%BF%E7%94%BA12-6" target="_blank" rel="noopener">この住所を単体で開く</a>
+    </div>
+  </div>
+
+  <div class="alt">
+    <h2>💡 他の方法の提案</h2>
+    <p>今回は「松田桂子邸→他8件を最短で巡回」する順序を計算し、Googleマップの経路リンクとしてまとめました。ほかにも用途に応じて以下の方法があります。</p>
+    <ol>
+      <li><b>Googleマイマップ（My Maps）</b>：訪問先のピンを1枚の地図上に配置し、担当者ごとに色分けしたり、複数人でルート全体を俯瞰したいときに便利です。ルート順の最適化はできませんが、訪問先の位置関係を一覧するのに向いています。</li>
+      <li><b>専用ルート最適化アプリ（Circuit、Route4Me、Waze など）</b>：スマホから毎回自動で最短順に並べ替えたい、複数人・複数車両で担当先を割り振りたい、訪問先が頻繁に変わる、といった場合はこうした配送・訪問ルート専用アプリの方が運用が楽になります（一部有料）。</li>
+      <li><b>スプレッドシート＋Googleマップ</b>：訪問先リストをスプレッドシートで管理し、住所が変わるたびにこのページのようなルートリンクを都度作り直す運用です。件数が少なく変更頻度が低い場合はこれで十分です。</li>
+    </ol>
+    <p>現状の9件・単発利用であれば、上の「Googleマップで開く」ボタンが最も手軽です。</p>
+  </div>
+
+  <footer>
+    作成日：2026年8月13日 ｜ 経路計算：直線距離による最適順の算出後、Googleマップの実走行時間で検証済み
+  </footer>
+
+</div>
+</body>
+</html>
